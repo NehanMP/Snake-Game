@@ -1,5 +1,8 @@
 # Snake-Game
 
+![Screenshot (393)](https://github.com/NehanMP/Snake-Game/assets/148346345/41edef85-7f39-4fa8-a153-c53a19952967)
+
+
 ## Author
 <li>Nehan Perera</li>
 
