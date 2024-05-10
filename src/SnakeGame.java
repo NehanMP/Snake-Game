@@ -69,8 +69,30 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 
     public void placeFood() {
         Random random = new Random();
-        snakeFood.x = random.nextInt(boardWidth/tileSize); //1000/25 = 40
-        snakeFood.y = random.nextInt(boardHeight/tileSize);
+        int newX, newY;
+        boolean occupied;
+
+        do {
+            occupied = false;
+            newX = random.nextInt(boardWidth / tileSize);
+            newY = random.nextInt(boardHeight / tileSize);
+
+            // Check whether coordinates collide with the snake's body
+            for (Tile tile : snakeBody) {
+                if (tile.x == newX && tile.y == newY) {
+                    occupied = true;
+                    break;
+                }
+            }
+
+            // Check whether coordinates are the same as the head's position
+            if (snakeHead.x == newX && snakeHead.y == newY) {
+                occupied = true;
+            }
+        } while (occupied);
+
+        snakeFood.x = newX;
+        snakeFood.y = newY;
     }
 
     public void move() {
